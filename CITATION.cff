@@ -1,0 +1,60 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it and the original paper below."
+title: "seminal: published risk equations in andrology and male reproductive health"
+type: software
+authors:
+  - family-names: Shpaner
+    given-names: Leonid
+    orcid: "https://orcid.org/0009-0007-5311-8095"
+version: 0.0.1a1
+date-released: 2026-11-19
+license: MIT
+repository-code: "https://github.com/lshpaner/seminal"
+keywords:
+  - andrology
+  - male infertility
+  - azoospermia
+  - FSH
+  - risk prediction
+references:
+  - type: article
+    authors:
+      - family-names: Tradewell
+        given-names: Michael B.
+      - family-names: Cazzaniga
+        given-names: Walter
+      - family-names: Pagani
+        given-names: Rodrigo L.
+      - family-names: Reddy
+        given-names: Rohit
+      - family-names: Boeri
+        given-names: Luca
+      - family-names: Kresch
+        given-names: Eliyahu
+      - family-names: Morgantini
+        given-names: Luca A.
+      - family-names: Ibrahim
+        given-names: Emad
+      - family-names: Niederberger
+        given-names: Craig
+      - family-names: Salonia
+        given-names: Andrea
+      - family-names: Ramasamy
+        given-names: Ranjith
+    title: "Algorithms for Predicting the Probability of Azoospermia from Follicle Stimulating Hormone: Design and Multi-Institutional External Validation"
+    journal: "World Journal of Men's Health"
+    year: 2022
+    volume: 40
+    issue: 4
+    start: 600
+    end: 607
+    doi: "10.5534/wjmh.210138"
+  - type: data
+    authors:
+      - family-names: Tradewell
+        given-names: Michael B.
+    title: "FSH_DeI_Data_WJMH"
+    publisher: "Harvard Dataverse"
+    year: 2022
+    doi: "10.7910/DVN/EQFMCM"
+    license: CC0-1.0

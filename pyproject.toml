@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=77.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seminal"
+version = "0.0.1a1"
+description = "Published risk equations in andrology and male reproductive health: azoospermia probability from FSH and clinical inputs (Tradewell et al., World J Mens Health 2022)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Leonid Shpaner", email = "lshpaner@ucla.edu" }]
+requires-python = ">=3.8"
+dependencies = ["numpy>=1.20", "pandas>=1.3"]
+keywords = ["andrology", "urology", "male infertility", "azoospermia", "fsh", "semen analysis", "risk prediction"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pytest-cov", "build", "twine", "nbstripout"]
+data = ["requests", "typer", "pyarrow", "openpyxl", "ipykernel"]
+docs = ["sphinx", "sphinx-rtd-theme", "sphinx-copybutton", "myst-nb", "ipykernel"]
+
+[project.urls]
+Homepage = "https://github.com/lshpaner/seminal"
+Documentation = "https://lshpaner.github.io/seminal"
+Issues = "https://github.com/lshpaner/seminal/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.coverage.run]
+source = ["src/seminal"]
+branch = false

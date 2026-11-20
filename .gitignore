@@ -1,0 +1,33 @@
+# Data (never committed)
+data/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# Environments
+seminal_venv/
+venv/
+.venv/
+.env
+
+# Notebooks / editors
+.ipynb_checkpoints/
+.vscode/
+.idea/
+.DS_Store
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Sphinx
+docs/_build/
+docs/_notebooks/
+docs/jupyter_execute/
