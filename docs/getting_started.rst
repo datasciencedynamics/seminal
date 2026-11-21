@@ -27,6 +27,18 @@ Full logistic model
 This is the median man from the paper's Table 1. Pass ``explain=True`` to also
 get the linear predictor and each input's contribution to the log-odds.
 
+Semen parameters against the WHO reference distribution
+---------------------------------------------------------
+
+.. code-block:: python
+
+   from seminal import semen_percentile, below_reference
+
+   semen_percentile("concentration", 36)   # 25.0, the 25th centile of fertile men
+   below_reference("progressive_motility", 28)   # True, limit is 30
+
+See :doc:`semen` for the full table and the ``who2010`` option.
+
 Score a cohort
 --------------
 
@@ -62,6 +74,7 @@ Table of Contents
 - :doc:`usage_guide`
 - :doc:`inputs`
 - :doc:`model`
+- :doc:`semen`
 - :doc:`data`
 - :doc:`_notebooks/01_reproduce_tradewell`
 - :doc:`api`

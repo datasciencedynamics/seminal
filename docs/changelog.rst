@@ -1,6 +1,30 @@
 Changelog
 =========
 
+Version 0.0.1a1 (2026-11-21)
+----------------------------
+
+- New ``seminal.semen`` module: the WHO 2021 (6th edition) semen reference
+  distributions of Campbell et al. (2021), carried exactly as printed for all
+  nine parameters and nine centiles, with the 2010 to 2020 subset and the WHO
+  2010 lower reference limits as options. ``semen_percentile``,
+  ``lower_reference_limit``, ``below_reference``, ``semen_reference`` and
+  ``add_semen_percentile_cols``.
+- Tests check the table against the paper, the headline 6th-edition limits,
+  interpolation and cohort behaviour.
+
+Version 0.0.0a4 (2026-11-20)
+----------------------------
+
+- BibTeX citation in the README. No changes to the equations.
+
+Version 0.0.0a3 (2026-11-20)
+----------------------------
+
+- Repository moved to datasciencedynamics/seminal; documentation at
+  datasciencedynamics.com/seminal; Zenodo DOI in README and CITATION. No
+  changes to the equations.
+
 Version 0.0.0a2 (2026-11-20)
 ----------------------------
 

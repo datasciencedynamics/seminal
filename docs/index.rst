@@ -9,11 +9,12 @@ Welcome to the seminal Python Library Documentation!
 male reproductive health, implemented with the coefficients exactly as printed
 in the source papers and checked against the authors' own validation data.
 
-The first release implements the two azoospermia prediction models of
-Tradewell et al. (*World J Mens Health* 2022): a quadratic in serum FSH alone,
-and a logistic regression on age, FSH, LH, total testosterone and mean testis
-volume. Both estimate the probability that a man presenting for infertility
-evaluation has no sperm in the ejaculate, without a semen analysis.
+It currently covers the two azoospermia prediction models of Tradewell et al.
+(*World J Mens Health* 2022), a quadratic in serum FSH alone and a logistic
+regression on age, FSH, LH, total testosterone and mean testis volume, and the
+WHO 2021 semen reference distributions of Campbell et al. (*Andrology* 2021):
+where a semen parameter sits among fertile men and whether it falls below the
+lower reference limit.
 
 The library scores single patients or entire cohorts, explains each patient's
 risk term by term, and ships with the scripts and notebooks that rebuild the
@@ -58,6 +59,7 @@ Table of Contents
    usage_guide
    inputs
    model
+   semen
    data
    _notebooks/01_reproduce_tradewell
    api
