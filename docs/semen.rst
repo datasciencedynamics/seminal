@@ -72,6 +72,76 @@ flag (``_below_lrl``, below the WHO 5th centile).
 If the columns already carry the parameter names (``volume``,
 ``concentration``, ...) the mapping can be omitted.
 
+What the call needs and what it adds, for every mapped parameter:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 24 22 30 24
+
+   * - Parameter key
+     - Input column (yours)
+     - Unit expected
+     - Columns added
+   * - ``volume``
+     - e.g. ``vol_ml``
+     - mL
+     - .. rst-class:: added-col
+
+       ``vol_ml_pct``, ``vol_ml_below_lrl``
+   * - ``concentration``
+     - e.g. ``conc``
+     - 10\ :sup:`6`/mL
+     - .. rst-class:: added-col
+
+       ``conc_pct``, ``conc_below_lrl``
+   * - ``total_number``
+     - e.g. ``tsc`` (volume × concentration)
+     - 10\ :sup:`6` per ejaculate
+     - .. rst-class:: added-col
+
+       ``tsc_pct``, ``tsc_below_lrl``
+   * - ``total_motility``
+     - e.g. ``mot``
+     - % (PR + NP), 0 to 100
+     - .. rst-class:: added-col
+
+       ``mot_pct``, ``mot_below_lrl``
+   * - ``progressive_motility``
+     - e.g. ``pr``
+     - %
+     - .. rst-class:: added-col
+
+       ``pr_pct``, ``pr_below_lrl``
+   * - ``nonprogressive_motility``
+     - e.g. ``np``
+     - %
+     - .. rst-class:: added-col
+
+       ``np_pct``, ``np_below_lrl``
+   * - ``immotile``
+     - e.g. ``im``
+     - %
+     - .. rst-class:: added-col
+
+       ``im_pct``, ``im_below_lrl``
+   * - ``vitality``
+     - e.g. ``vit``
+     - % live
+     - .. rst-class:: added-col
+
+       ``vit_pct``, ``vit_below_lrl``
+   * - ``normal_forms``
+     - e.g. ``morph``
+     - % normal, strict criteria
+     - .. rst-class:: added-col
+
+       ``morph_pct``, ``morph_below_lrl``
+
+``<col>_pct`` is a float from 2.5 to 97.5 (the man's centile among fertile
+men); ``<col>_below_lrl`` is a nullable boolean, True below the WHO 5th
+centile. Any subset of the nine parameters can be mapped; nothing else is
+required of the DataFrame.
+
 Whether the scored columns mean anything on a new dataset depends on three
 things:
 

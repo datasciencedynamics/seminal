@@ -40,3 +40,8 @@ img.seminal-logo {
 .cell_output table.dataframe thead th {
   text-align: right;
 }
+
+/* Columns added by add_semen_percentile_cols, on the semen page */
+.added-col, td:has(> .added-col) {
+  background-color: #e8f1fb;
+}
