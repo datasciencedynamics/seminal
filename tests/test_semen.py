@@ -97,3 +97,31 @@ def test_reference_table_shape():
     assert semen_reference("volume", "2010_2020").loc["volume", "p5"] == 1.2
     with pytest.raises(ValueError):
         semen_reference("ph")
+
+
+# ---------------------------------------------------------------------------
+# Against the deposit (needs `make data_gen preprocess`)
+# ---------------------------------------------------------------------------
+
+_FM = "data/processed/fertile_man_2020.parquet"
+
+
+@pytest.mark.skipif(not __import__("os").path.exists(_FM), reason="run `make data_gen preprocess` first")
+def test_table_3_reproduces_from_the_deposit():
+    """Campbell et al. 2021 Table 3 from Fertile_Man_2020.xlsx: Weibull quantiles,
+    round half up to the printed precision. One known cell differs (median total
+    sperm number, 209.496 printed as 210)."""
+    from decimal import ROUND_HALF_UP, Decimal
+
+    fm = pd.read_parquet(_FM)
+    table = semen_reference()
+    assert fm[list(PARAMETERS)].notna().sum().tolist() == table["n"].tolist()
+    mismatches = []
+    for p in PARAMETERS:
+        q = np.quantile(fm[p].dropna(), [c / 100 for c in CENTILES], method="weibull")
+        for c, raw in zip(CENTILES, q):
+            unit = Decimal("0.1") if p == "volume" else Decimal("1")
+            got = float(Decimal(str(float(raw))).quantize(unit, rounding=ROUND_HALF_UP))
+            if got != table.loc[p, f"p{c:g}"]:
+                mismatches.append((p, c, raw, table.loc[p, f"p{c:g}"]))
+    assert mismatches == [("total_number", 50, pytest.approx(209.496, abs=0.01), 210)]

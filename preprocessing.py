@@ -1,4 +1,17 @@
-"""Build an analysis-ready table from the Tradewell et al. 2022 raw sheets.
+"""Build analysis-ready tables from the raw files saved by data_gen.py.
+
+Two outputs:
+
+* data/processed/tradewell_2022.parquet from the Tradewell et al. 2022 sheets
+  (azoospermia cohorts), described below.
+* data/processed/fertile_man_2020.parquet from Fertile_Man_2020.xlsx (the
+  Campbell et al. 2021 / WHO 2021 reference men): the nine semen parameters
+  renamed to the names used by ``seminal.semen``, "NO RESULT" and other
+  non-numeric entries set to missing, and the contributing study kept as
+  ``study``. Nothing is excluded or imputed; the paper used every value present.
+
+Tradewell et al. 2022
+---------------------
 
 Reads the per-site Parquet files saved by data_gen.py, harmonizes column
 names across sites, derives the azoospermia outcome and mean testis volume,
@@ -32,6 +45,29 @@ import typer
 app = typer.Typer(add_completion=False)
 
 SITES = {"site_1": "miami", "site_2": "milan", "site_3": "chicago"}
+
+# Fertile_Man_2020.xlsx column -> seminal.semen parameter name
+FERTILE_MAN_RENAME = {
+    "PI": "study",
+    "Semen Volume (ml)": "volume",
+    "Sperm Concentration (106/ml)": "concentration",
+    "Total Number (106)": "total_number",
+    "Total Motility (%)": "total_motility",
+    "Progressive Motility (%)": "progressive_motility",
+    "Non-progressive Motility (%)": "nonprogressive_motility",
+    "Immotile Spermatozoa (%)": "immotile",
+    "Vitality (%)": "vitality",
+    "Normal Forms (%)": "normal_forms",
+}
+
+
+def load_fertile_man(path: Path) -> pd.DataFrame:
+    """Harmonize the Campbell et al. 2021 reference men to the library's names."""
+    df = pd.read_parquet(path).rename(columns=FERTILE_MAN_RENAME)
+    params = [c for c in FERTILE_MAN_RENAME.values() if c != "study"]
+    for c in params:
+        df[c] = pd.to_numeric(df[c], errors="coerce")   # "NO RESULT" -> NaN
+    return df[["study"] + params]
 
 # Columns common to Site 1 (Miami) and Site 3 (Chicago)
 US_RENAME = {
@@ -181,6 +217,17 @@ def main(
         df.to_csv(out.with_suffix(".csv"), index=False)
 
     typer.echo(f"saved  {out} ({len(df):,} rows, exclusions={exclusions})")
+
+    fm_raw = raw_dir / "fertile_man_2020.parquet"
+    if fm_raw.exists():
+        fm = load_fertile_man(fm_raw)
+        fm_out = out_dir / "fertile_man_2020.parquet"
+        fm.to_parquet(fm_out, index=False)
+        if csv:
+            fm.to_csv(fm_out.with_suffix(".csv"), index=False)
+        typer.echo(f"saved  {fm_out} ({len(fm):,} men, {fm['study'].nunique()} studies); "
+                   f"non-missing per parameter: {fm.drop(columns='study').notna().sum().to_dict()}")
+
     summary = (
         df.groupby("site")
         .agg(n_raw=("azoospermia", "size"),

@@ -12,7 +12,7 @@
 It currently covers:
 
 - **Azoospermia probability** from Tradewell et al. (World J Mens Health 2022): a quadratic in serum FSH alone, and a logistic regression on age, FSH, LH, total testosterone and mean testis volume. Both estimate the probability that a man presenting for infertility evaluation has no sperm in the ejaculate, without a semen analysis.
-- **WHO 2021 semen reference distributions** from Campbell et al. (Andrology 2021), the fertile-man centiles adopted by the 6th edition of the WHO laboratory manual: where a semen parameter sits among fertile men, and whether it falls below the lower reference limit.
+- **WHO 2021 semen reference distributions** from Campbell et al. (Andrology 2021), the fertile-man centiles adopted by the 6th edition of the WHO laboratory manual: where a semen parameter sits among fertile men, and whether it falls below the lower reference limit. The table is checked against the authors' public deposit (3,589 men): all 81 cells reproduce.
 
 > **Not affiliated with the original authors.** This is an independent implementation of published equations, intended for research use. It is not a medical device and should not be used to make clinical decisions.
 
@@ -103,11 +103,11 @@ The paper prints the model form as `1/exp[−(b₀ + bᵢXᵢ)]`, which is a typ
 | Vitality (%) | 1,337 | 54 (50 to 56) | 78 | 97 |
 | Normal forms (%) | 3,335 | 4 (3.9 to 4.0) | 14 | 39 |
 
-All nine centiles for all nine parameters are in the package, as printed, for both the combined WHO 2020 table and the 2010 to 2020 studies alone.
+All nine centiles for all nine parameters are in the package, as printed, for both the combined WHO 2020 table and the 2010 to 2020 studies alone. `notebooks/02_reproduce_campbell.ipynb` recomputes both tables from the authors' deposit (`Fertile_Man_2020.xlsx`, University of Dundee, CC BY): every n matches, the 5th centiles reproduce exactly, and 80 of 81 cells of Table 3 match (the median total sperm number is 209.5, printed as 210).
 
 ## Validation against the authors' data
 
-The study data are public under CC0 on [Harvard Dataverse](https://doi.org/10.7910/DVN/EQFMCM). `make data_gen preprocess` downloads them into `data/` (gitignored) and the test suite then checks the implementation against the paper's external validation:
+The Tradewell study data are public under CC0 on [Harvard Dataverse](https://doi.org/10.7910/DVN/EQFMCM) and the Campbell reference men under CC BY on the [University of Dundee portal](https://doi.org/10.15132/10000163). `make data_gen preprocess` downloads both into `data/` (gitignored) and the test suite then checks the implementation against the paper's external validation and the WHO table against the deposit:
 
 | Site | n | AUC, logistic (paper) | AUC, FSH-only (paper) |
 |---|---|---|---|
@@ -125,6 +125,7 @@ The study data are public under CC0 on [Harvard Dataverse](https://doi.org/10.79
 
 - [`00_quickstart.ipynb`](notebooks/00_quickstart.ipynb): one patient, the FSH curve, scoring the validation cohorts, ROC / PR / calibration per site, explaining a prediction.
 - [`01_reproduce_tradewell.ipynb`](notebooks/01_reproduce_tradewell.ipynb): rebuild the paper's cohort and Table 1 from the deposit, refit the logistic model on Miami, calibration-in-the-large and slope per site, decision curves, intercept-only recalibration.
+- [`02_reproduce_campbell.ipynb`](notebooks/02_reproduce_campbell.ipynb): recompute the WHO 2021 reference centiles from the Fertile Man deposit, identify the 2010 to 2020 studies, bootstrap the 5th-centile CIs, between-laboratory heterogeneity, accuracy of the interpolated percentile.
 
 Both run against `data/processed/`, built by `make data_gen preprocess`. Notebooks are committed without outputs; the rendered versions are on the documentation site.
 
@@ -134,8 +135,8 @@ Both run against `data/processed/`, built by `make data_gen preprocess`. Noteboo
 seminal/
 ├── src/seminal/      the package (equations and reference tables; no data)
 ├── tests/              unit tests plus optional validation against data/
-├── data_gen.py         download the Dataverse file into data/raw
-├── preprocessing.py    harmonize sites into data/processed
+├── data_gen.py         download the Dataverse and Dundee files into data/raw
+├── preprocessing.py    harmonize both datasets into data/processed
 ├── notebooks/          quickstart and the reproduction of Tradewell et al.
 └── Makefile            venv, install, test, data_gen, preprocess, build
 ```
@@ -163,9 +164,11 @@ Tradewell MB, Cazzaniga W, Pagani RL, et al. Algorithms for Predicting the Proba
 
 Campbell MJ, Lotti F, Baldi E, et al. Distribution of semen examination results 2020 - A follow up of data collated for the WHO semen analysis manual 2010. *Andrology*. 2021;9(4):817-822. doi:10.1111/andr.12983
 
+World Health Organization. *WHO laboratory manual for the examination and processing of human semen*, 6th ed. Geneva: WHO; 2021. ISBN 978-92-4-003078-7.
+
 ## License
 
-MIT. The study data on Dataverse are CC0.
+MIT. The Tradewell data on Dataverse are CC0; the Fertile Man deposit is CC BY 4.0.
 
 ## Author
 

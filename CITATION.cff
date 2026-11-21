@@ -77,12 +77,42 @@ references:
     start: 817
     end: 822
     doi: "10.1111/andr.12983"
+  - type: book
+    authors:
+      - name: World Health Organization
+    title: "WHO laboratory manual for the examination and processing of human semen"
+    edition: "6th"
+    year: 2021
+    publisher:
+      name: World Health Organization
+    isbn: "978-92-4-003078-7"
+  - type: data
+    authors:
+      - family-names: Campbell
+        given-names: Martin J.
+      - family-names: Tang
+        given-names: Yuxiang
+      - family-names: Saleh
+        given-names: Ramadan
+      - family-names: Aboutorabi
+        given-names: Roshanak
+      - family-names: Lotti
+        given-names: Francesco
+      - family-names: Evgeni
+        given-names: Evangelini
+    title: "Fertile man semen parameters 2020: An update to the data collated for the WHO semen analysis manual 2010"
+    publisher:
+      name: "University of Dundee"
+    year: 2021
+    doi: "10.15132/10000163"
+    license: CC-BY-4.0
   - type: data
     authors:
       - family-names: Tradewell
         given-names: Michael B.
     title: "FSH_DeI_Data_WJMH"
-    publisher: "Harvard Dataverse"
+    publisher:
+      name: "Harvard Dataverse"
     year: 2022
     doi: "10.7910/DVN/EQFMCM"
     license: CC0-1.0
