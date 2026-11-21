@@ -15,10 +15,10 @@ The first release implements the two azoospermia prediction models of Tradewell 
 ## Installation
 
 ```bash
-pip install --pre seminal
+pip install seminal
 ```
 
-`--pre` is needed while the package is in alpha. Requires Python 3.8+, numpy 1.20+ and pandas 1.3+. Full documentation: [lshpaner.github.io/seminal](https://lshpaner.github.io/seminal/).
+Requires Python 3.8+, numpy 1.20+ and pandas 1.3+. Full documentation: [lshpaner.github.io/seminal](https://lshpaner.github.io/seminal/).
 
 ## Usage
 
