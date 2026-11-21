@@ -31,3 +31,5 @@ coverage.xml
 docs/_build/
 docs/_notebooks/
 docs/jupyter_execute/
+docs/data
+docs/preprocessing.py

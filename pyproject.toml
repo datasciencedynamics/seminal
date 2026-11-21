@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "seminal"
 version = "0.0.0a1"
-description = "Published risk equations in andrology and male reproductive health: azoospermia probability from FSH and clinical inputs (Tradewell et al., World J Mens Health 2022)"
+description = "Published risk equations in andrology and male reproductive health: azoospermia probability from FSH and clinical inputs (Tradewell et al., World Journal of Men's Health 2022)"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
