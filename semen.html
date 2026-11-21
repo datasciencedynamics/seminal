@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WHO 2021 Semen Reference Distributions &mdash; seminal 0.0.1a1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=dd2c8cf4" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c1d6fd47"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=fd10adb8"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Data" href="data.html" />
+    <link rel="prev" title="The Models" href="model.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            seminal
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#fsh-alone">FSH alone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#full-logistic-model">Full logistic model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#semen-parameters-against-the-who-reference-distribution">Semen parameters against the WHO reference distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#score-a-cohort">Score a cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#library-overview">Library overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_notebooks/00_quickstart.html">seminal quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#one-patient">One patient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#the-fsh-curve">The FSH curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#scoring-a-cohort">Scoring a cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#explaining-a-prediction">Explaining a prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#who-2021-semen-reference">WHO 2021 semen reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#where-to-go-next">Where to go next</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#fsh-alone-azoospermia-fsh">FSH alone: <code class="docutils literal notranslate"><span class="pre">azoospermia_fsh</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#full-model-azoospermia-lr">Full model: <code class="docutils literal notranslate"><span class="pre">azoospermia_lr</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage_guide.html#explaining-a-prediction">Explaining a prediction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#cohorts-add-azoospermia-risk-cols">Cohorts: <code class="docutils literal notranslate"><span class="pre">add_azoospermia_risk_cols</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Input Requirements and Common Pitfalls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#common-pitfalls">Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">The Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model.html#outcome">Outcome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#development">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#fsh-only-quadratic">FSH-only quadratic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#logistic-regression">Logistic regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#what-the-reproduction-shows">What the reproduction shows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#discrimination">Discrimination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#what-is-not-implemented">What is not implemented</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WHO 2021 Semen Reference Distributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#where-a-value-sits">Where a value sits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lower-reference-limits">Lower reference limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cohorts">Cohorts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-table">The table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#things-to-know">Things to know</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">The Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data.html#tradewell-et-al-2022">Tradewell et al. 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#download-and-harmonize">Download and harmonize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#two-exclusion-rules">Two exclusion rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#things-to-know">Things to know</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_notebooks/01_reproduce_tradewell.html">Reproducing Tradewell et al. 2022</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/01_reproduce_tradewell.html#cohort-reconstruction">1. Cohort reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/01_reproduce_tradewell.html#table-1">2. Table 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/01_reproduce_tradewell.html#refit-on-the-miami-development-cohort">3. Refit on the Miami development cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/01_reproduce_tradewell.html#external-validation-in-depth">4. External validation in depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/01_reproduce_tradewell.html#recalibration-per-site">5. Recalibration per site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/01_reproduce_tradewell.html#sensitivity-analyses">6. Sensitivity analyses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/01_reproduce_tradewell.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_notebooks/02_reproduce_campbell.html">Reproducing Campbell et al. 2021 (WHO 2021 reference distribution)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/02_reproduce_campbell.html#the-reference-men">1. The reference men</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/02_reproduce_campbell.html#table-3-recompute-the-nine-centiles">2. Table 3: recompute the nine centiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/02_reproduce_campbell.html#table-2-the-2010-to-2020-studies">3. Table 2: the 2010 to 2020 studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/02_reproduce_campbell.html#uncertainty-on-the-5th-centile">4. Uncertainty on the 5th centile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/02_reproduce_campbell.html#heterogeneity-between-studies">5. Heterogeneity between studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/02_reproduce_campbell.html#how-good-is-the-interpolated-percentile">6. How good is the interpolated percentile?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/02_reproduce_campbell.html#scoring-a-cohort-with-add-semen-percentile-cols">7. Scoring a cohort with <code class="docutils literal notranslate"><span class="pre">add_semen_percentile_cols</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/02_reproduce_campbell.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#single-patient">Single patient</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#seminal.azoospermia_fsh"><code class="docutils literal notranslate"><span class="pre">azoospermia_fsh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#seminal.azoospermia_lr"><code class="docutils literal notranslate"><span class="pre">azoospermia_lr()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#cohorts">Cohorts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#seminal.add_azoospermia_risk_cols"><code class="docutils literal notranslate"><span class="pre">add_azoospermia_risk_cols()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#who-2021-semen-reference-distributions">WHO 2021 semen reference distributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#seminal.semen_percentile"><code class="docutils literal notranslate"><span class="pre">semen_percentile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#seminal.lower_reference_limit"><code class="docutils literal notranslate"><span class="pre">lower_reference_limit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#seminal.below_reference"><code class="docutils literal notranslate"><span class="pre">below_reference()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#seminal.semen_reference"><code class="docutils literal notranslate"><span class="pre">semen_reference()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#seminal.add_semen_percentile_cols"><code class="docutils literal notranslate"><span class="pre">add_semen_percentile_cols()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#constants">Constants</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About seminal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors/Maintainers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">Citing seminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a1-2026-11-21">Version 0.0.1a1 (2026-11-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-0a4-2026-11-20">Version 0.0.0a4 (2026-11-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-0a3-2026-11-20">Version 0.0.0a3 (2026-11-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-0a2-2026-11-20">Version 0.0.0a2 (2026-11-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-0a1-2026-11-20">Version 0.0.0a1 (2026-11-20)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">seminal</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">WHO 2021 Semen Reference Distributions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<img src="_static/seminal_logo.svg" alt="seminal Python library"
+     width="220" class="seminal-logo" draggable="false" oncontextmenu="return false;">
+
+           <div itemprop="articleBody">
+             
+  <section id="who-2021-semen-reference-distributions">
+<h1>WHO 2021 Semen Reference Distributions<a class="headerlink" href="#who-2021-semen-reference-distributions" title="Link to this heading"></a></h1>
+<p>The 6th edition of the WHO laboratory manual (2021) replaced the 2010
+reference values with the distribution reported by Campbell et al. (2021):
+semen parameters from 3,589 men in 12 countries whose partners conceived
+within 12 months. <code class="docutils literal notranslate"><span class="pre">seminal.semen</span></code> carries that table exactly as printed and
+answers two questions about a result: where it sits among fertile men, and
+whether it is below the conventional lower reference limit (the 5th centile).</p>
+<p>The paper is explicit that the 5th centile is not a threshold between fertile
+and infertile men; it is the point below which only 5% of fertile men fall.</p>
+<section id="where-a-value-sits">
+<h2>Where a value sits<a class="headerlink" href="#where-a-value-sits" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">seminal</span><span class="w"> </span><span class="kn">import</span> <span class="n">semen_percentile</span>
+
+<span class="n">semen_percentile</span><span class="p">(</span><span class="s2">"concentration"</span><span class="p">,</span> <span class="mi">36</span><span class="p">)</span>   <span class="c1"># 25.0</span>
+<span class="n">semen_percentile</span><span class="p">(</span><span class="s2">"progressive_motility"</span><span class="p">,</span> <span class="mi">55</span><span class="p">)</span>   <span class="c1"># 50.0</span>
+<span class="n">semen_percentile</span><span class="p">(</span><span class="s2">"normal_forms"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>     <span class="c1"># 2.5  (below the lowest published centile)</span>
+</pre></div>
+</div>
+<p>The percentile is linearly interpolated between the nine published centiles
+(2.5, 5, 10, 25, 50, 75, 90, 95, 97.5) and clipped to that range, since the
+tails are not published. It is exact at the nine points and an approximation
+between them.</p>
+</section>
+<section id="lower-reference-limits">
+<h2>Lower reference limits<a class="headerlink" href="#lower-reference-limits" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">seminal</span><span class="w"> </span><span class="kn">import</span> <span class="n">lower_reference_limit</span><span class="p">,</span> <span class="n">below_reference</span>
+
+<span class="n">lower_reference_limit</span><span class="p">(</span><span class="s2">"concentration"</span><span class="p">)</span>             <span class="c1"># 16</span>
+<span class="n">lower_reference_limit</span><span class="p">(</span><span class="s2">"concentration"</span><span class="p">,</span> <span class="s2">"who2010"</span><span class="p">)</span>  <span class="c1"># 15</span>
+<span class="n">below_reference</span><span class="p">(</span><span class="s2">"total_motility"</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>              <span class="c1"># True (limit 42)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">edition=&quot;who2010&quot;</span></code> gives the 5th-edition limits (Cooper et al. 2010) for
+labs that still report against them.</p>
+</section>
+<section id="cohorts">
+<h2>Cohorts<a class="headerlink" href="#cohorts" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">add_semen_percentile_cols</span></code> takes a DataFrame with one row per semen
+analysis and a mapping of parameter name to column name. For each mapped
+column it adds a percentile column (<code class="docutils literal notranslate"><span class="pre">_pct</span></code>, 2.5 to 97.5) and a below-limit
+flag (<code class="docutils literal notranslate"><span class="pre">_below_lrl</span></code>, below the WHO 5th centile).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">seminal</span><span class="w"> </span><span class="kn">import</span> <span class="n">add_semen_percentile_cols</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s2">"tsc"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"vol_ml"</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s2">"conc"</span><span class="p">]</span>        <span class="c1"># total number, if not recorded</span>
+
+<span class="n">scored</span> <span class="o">=</span> <span class="n">add_semen_percentile_cols</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">"volume"</span><span class="p">:</span> <span class="s2">"vol_ml"</span><span class="p">,</span>
+        <span class="s2">"concentration"</span><span class="p">:</span> <span class="s2">"conc"</span><span class="p">,</span>
+        <span class="s2">"total_number"</span><span class="p">:</span> <span class="s2">"tsc"</span><span class="p">,</span>
+        <span class="s2">"progressive_motility"</span><span class="p">:</span> <span class="s2">"pr"</span><span class="p">,</span>
+        <span class="s2">"normal_forms"</span><span class="p">:</span> <span class="s2">"morph"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">edition</span><span class="o">=</span><span class="s2">"who2020"</span><span class="p">,</span>                       <span class="c1"># or "2010_2020"</span>
+<span class="p">)</span>
+<span class="c1"># adds vol_ml_pct, vol_ml_below_lrl, conc_pct, conc_below_lrl, ...</span>
+<span class="n">scored</span><span class="p">[</span><span class="s2">"n_below_lrl"</span><span class="p">]</span> <span class="o">=</span> <span class="n">scored</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s2">"_below_lrl"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the columns already carry the parameter names (<code class="docutils literal notranslate"><span class="pre">volume</span></code>,
+<code class="docutils literal notranslate"><span class="pre">concentration</span></code>, …) the mapping can be omitted.</p>
+<p>What the call needs and what it adds, for every mapped parameter:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 22.0%" />
+<col style="width: 30.0%" />
+<col style="width: 24.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter key</p></th>
+<th class="head"><p>Input column (yours)</p></th>
+<th class="head"><p>Unit expected</p></th>
+<th class="head"><p>Columns added</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">volume</span></code></p></td>
+<td><p>e.g. <code class="docutils literal notranslate"><span class="pre">vol_ml</span></code></p></td>
+<td><p>mL</p></td>
+<td><p class="added-col"><code class="docutils literal notranslate"><span class="pre">vol_ml_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">vol_ml_below_lrl</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">concentration</span></code></p></td>
+<td><p>e.g. <code class="docutils literal notranslate"><span class="pre">conc</span></code></p></td>
+<td><p>10<sup>6</sup>/mL</p></td>
+<td><p class="added-col"><code class="docutils literal notranslate"><span class="pre">conc_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">conc_below_lrl</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">total_number</span></code></p></td>
+<td><p>e.g. <code class="docutils literal notranslate"><span class="pre">tsc</span></code> (volume × concentration)</p></td>
+<td><p>10<sup>6</sup> per ejaculate</p></td>
+<td><p class="added-col"><code class="docutils literal notranslate"><span class="pre">tsc_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">tsc_below_lrl</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">total_motility</span></code></p></td>
+<td><p>e.g. <code class="docutils literal notranslate"><span class="pre">mot</span></code></p></td>
+<td><p>% (PR + NP), 0 to 100</p></td>
+<td><p class="added-col"><code class="docutils literal notranslate"><span class="pre">mot_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">mot_below_lrl</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">progressive_motility</span></code></p></td>
+<td><p>e.g. <code class="docutils literal notranslate"><span class="pre">pr</span></code></p></td>
+<td><p>%</p></td>
+<td><p class="added-col"><code class="docutils literal notranslate"><span class="pre">pr_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">pr_below_lrl</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nonprogressive_motility</span></code></p></td>
+<td><p>e.g. <code class="docutils literal notranslate"><span class="pre">np</span></code></p></td>
+<td><p>%</p></td>
+<td><p class="added-col"><code class="docutils literal notranslate"><span class="pre">np_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">np_below_lrl</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">immotile</span></code></p></td>
+<td><p>e.g. <code class="docutils literal notranslate"><span class="pre">im</span></code></p></td>
+<td><p>%</p></td>
+<td><p class="added-col"><code class="docutils literal notranslate"><span class="pre">im_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">im_below_lrl</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vitality</span></code></p></td>
+<td><p>e.g. <code class="docutils literal notranslate"><span class="pre">vit</span></code></p></td>
+<td><p>% live</p></td>
+<td><p class="added-col"><code class="docutils literal notranslate"><span class="pre">vit_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">vit_below_lrl</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">normal_forms</span></code></p></td>
+<td><p>e.g. <code class="docutils literal notranslate"><span class="pre">morph</span></code></p></td>
+<td><p>% normal, strict criteria</p></td>
+<td><p class="added-col"><code class="docutils literal notranslate"><span class="pre">morph_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">morph_below_lrl</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;col&gt;_pct</span></code> is a float from 2.5 to 97.5 (the man’s centile among fertile
+men); <code class="docutils literal notranslate"><span class="pre">&lt;col&gt;_below_lrl</span></code> is a nullable boolean, True below the WHO 5th
+centile. Any subset of the nine parameters can be mapped; nothing else is
+required of the DataFrame.</p>
+<p>Whether the scored columns mean anything on a new dataset depends on three
+things:</p>
+<ul class="simple">
+<li><p><strong>Units.</strong> They must match <code class="docutils literal notranslate"><span class="pre">PARAMETERS[name][&quot;unit&quot;]</span></code>: mL, 10<sup>6</sup>/mL,
+10<sup>6</sup> per ejaculate, and percentages on a 0 to 100 scale. A motility
+column stored as a fraction (0.55) scores as the 2.5th centile.</p></li>
+<li><p><strong>Morphology.</strong> The reference was scored with strict (Tygerberg) criteria.
+Results under older WHO criteria run several times higher and are not
+comparable.</p></li>
+<li><p><strong>Missing values.</strong> Unparseable values become <code class="docutils literal notranslate"><span class="pre">NaN</span></code> in the percentile
+column and <code class="docutils literal notranslate"><span class="pre">&lt;NA&gt;</span></code> in the flag column; do not fill them before scoring.</p></li>
+</ul>
+<p>Two uses are worth naming. Describing a cohort against fertile men: the median
+<code class="docutils literal notranslate"><span class="pre">_pct</span></code> per parameter and the share <code class="docutils literal notranslate"><span class="pre">_below_lrl</span></code>, which is about 5% in a
+fertile reference population and far higher in an infertility clinic. And a
+simple severity count, <code class="docutils literal notranslate"><span class="pre">n_below_lrl</span></code> (0 to 9). The percentiles are a
+monotone transform of the raw values, so they add nothing to tree-based
+models; they put the nine parameters on one scale for plots and linear
+models.</p>
+<p>Direction matters for <code class="docutils literal notranslate"><span class="pre">immotile</span></code>: the flag fires when the immotile fraction
+is <em>below</em> the 5th centile, the favourable end.</p>
+<p>The quickstart notebook runs this on a toy export; section 7 of
+<a class="reference internal" href="_notebooks/02_reproduce_campbell.html"><span class="doc">Reproducing Campbell et al. 2021 (WHO 2021 reference distribution)</span></a> scores the reference men themselves
+(5% flag overall, with wide variation by study).</p>
+</section>
+<section id="the-table">
+<h2>The table<a class="headerlink" href="#the-table" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">semen_reference()</span></code> returns every parameter; <code class="docutils literal notranslate"><span class="pre">semen_reference(&quot;volume&quot;)</span></code>
+one row. Columns: <code class="docutils literal notranslate"><span class="pre">label</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">p2.5</span></code> through <code class="docutils literal notranslate"><span class="pre">p97.5</span></code>, and the 95%
+confidence interval of the 5th centile.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Campbell et al. 2021, Table 3 (WHO 2020, combined data)</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 26.3%" />
+<col style="width: 7.0%" />
+<col style="width: 7.0%" />
+<col style="width: 10.5%" />
+<col style="width: 7.0%" />
+<col style="width: 7.0%" />
+<col style="width: 7.0%" />
+<col style="width: 7.0%" />
+<col style="width: 7.0%" />
+<col style="width: 7.0%" />
+<col style="width: 7.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>n</p></th>
+<th class="head"><p>2.5</p></th>
+<th class="head"><p>5 (95% CI)</p></th>
+<th class="head"><p>10</p></th>
+<th class="head"><p>25</p></th>
+<th class="head"><p>50</p></th>
+<th class="head"><p>75</p></th>
+<th class="head"><p>90</p></th>
+<th class="head"><p>95</p></th>
+<th class="head"><p>97.5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Semen volume (mL)</p></td>
+<td><p>3586</p></td>
+<td><p>1.0</p></td>
+<td><p>1.4 (1.3 to 1.5)</p></td>
+<td><p>1.8</p></td>
+<td><p>2.3</p></td>
+<td><p>3.0</p></td>
+<td><p>4.2</p></td>
+<td><p>5.5</p></td>
+<td><p>6.2</p></td>
+<td><p>6.9</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sperm concentration (10⁶/mL)</p></td>
+<td><p>3587</p></td>
+<td><p>11</p></td>
+<td><p>16 (15 to 18)</p></td>
+<td><p>22</p></td>
+<td><p>36</p></td>
+<td><p>66</p></td>
+<td><p>110</p></td>
+<td><p>166</p></td>
+<td><p>208</p></td>
+<td><p>254</p></td>
+</tr>
+<tr class="row-even"><td><p>Total sperm number (10⁶)</p></td>
+<td><p>3584</p></td>
+<td><p>29</p></td>
+<td><p>39 (35 to 40)</p></td>
+<td><p>58</p></td>
+<td><p>108</p></td>
+<td><p>210</p></td>
+<td><p>363</p></td>
+<td><p>561</p></td>
+<td><p>701</p></td>
+<td><p>865</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total motility (%)</p></td>
+<td><p>3488</p></td>
+<td><p>35</p></td>
+<td><p>42 (40 to 43)</p></td>
+<td><p>47</p></td>
+<td><p>55</p></td>
+<td><p>64</p></td>
+<td><p>73</p></td>
+<td><p>83</p></td>
+<td><p>90</p></td>
+<td><p>92</p></td>
+</tr>
+<tr class="row-even"><td><p>Progressive motility (%)</p></td>
+<td><p>3389</p></td>
+<td><p>24</p></td>
+<td><p>30 (29 to 31)</p></td>
+<td><p>36</p></td>
+<td><p>45</p></td>
+<td><p>55</p></td>
+<td><p>63</p></td>
+<td><p>71</p></td>
+<td><p>77</p></td>
+<td><p>81</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-progressive motility (%)</p></td>
+<td><p>3387</p></td>
+<td><p>1</p></td>
+<td><p>1 (1 to 1)</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>8</p></td>
+<td><p>15</p></td>
+<td><p>26</p></td>
+<td><p>32</p></td>
+<td><p>38</p></td>
+</tr>
+<tr class="row-even"><td><p>Immotile (%)</p></td>
+<td><p>2800</p></td>
+<td><p>15</p></td>
+<td><p>20 (19 to 20)</p></td>
+<td><p>23</p></td>
+<td><p>30</p></td>
+<td><p>37</p></td>
+<td><p>45</p></td>
+<td><p>53</p></td>
+<td><p>58</p></td>
+<td><p>65</p></td>
+</tr>
+<tr class="row-odd"><td><p>Vitality (%)</p></td>
+<td><p>1337</p></td>
+<td><p>45</p></td>
+<td><p>54 (50 to 56)</p></td>
+<td><p>60</p></td>
+<td><p>69</p></td>
+<td><p>78</p></td>
+<td><p>88</p></td>
+<td><p>95</p></td>
+<td><p>97</p></td>
+<td><p>98</p></td>
+</tr>
+<tr class="row-even"><td><p>Normal forms (%)</p></td>
+<td><p>3335</p></td>
+<td><p>3</p></td>
+<td><p>4 (3.9 to 4.0)</p></td>
+<td><p>5</p></td>
+<td><p>8</p></td>
+<td><p>14</p></td>
+<td><p>23</p></td>
+<td><p>32</p></td>
+<td><p>39</p></td>
+<td><p>45</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">edition=&quot;2010_2020&quot;</span></code> selects Table 2 of the same paper, the 2010 to 2020
+studies without the 2010 reference data (n = 1,789 for most parameters).</p>
+<p>Both tables are checked against the authors’ deposit in
+<a class="reference internal" href="_notebooks/02_reproduce_campbell.html"><span class="doc">Reproducing Campbell et al. 2021 (WHO 2021 reference distribution)</span></a>: every n matches, the 5th centiles
+reproduce exactly, and 80 of 81 cells of Table 3 and 81 of 81 of Table 2
+reproduce with the Weibull quantile definition (the remaining cell is a
+median of 209.5 printed as 210).</p>
+</section>
+<section id="things-to-know">
+<h2>Things to know<a class="headerlink" href="#things-to-know" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The parameters are those of a standard semen analysis under the WHO manual:
+volume, concentration, total number, total and progressive motility,
+non-progressive, immotile, vitality (eosin or hypo-osmotic swelling) and
+strict-criteria normal morphology. pH, round cells and other measurements
+have no published distribution.</p></li>
+<li><p>The reference men are fertile by definition (time to pregnancy up to 12
+months), so the distribution describes fertile men, not the general
+population and not an infertility clinic.</p></li>
+<li><p>Methodological differences between contributing laboratories are part of
+the spread; Paffoni et al. (2022) argue the pooled studies cannot be treated
+as one population. The centiles are reported here as WHO adopted them.</p></li>
+<li><p>The library does not interpret results. A value at the 3rd centile is a
+value at the 3rd centile; what it means for a couple depends on everything
+else about them.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="model.html" class="btn btn-neutral float-left" title="The Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="data.html" class="btn btn-neutral float-right" title="The Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Leon Shpaner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

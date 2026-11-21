@@ -1,0 +1,47 @@
+/* Wide display equations scroll inside their box instead of overflowing the page */
+div.math, .math {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Page logo: not selectable, not draggable */
+img.seminal-logo {
+    display: block;
+    margin-bottom: 1em;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+/* Images that should not be clicked, dragged or saved */
+.no-click img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Notebook output tables (pandas DataFrames): scroll instead of overflowing the
+   content column; the RTD theme only wraps its own tables. */
+.cell_output .output.text_html,
+.cell_output .output.text_plain {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.cell_output table.dataframe {
+  font-size: 0.85em;
+  white-space: nowrap;
+  border-collapse: collapse;
+}
+.cell_output table.dataframe th,
+.cell_output table.dataframe td {
+  padding: 2px 8px;
+}
+.cell_output table.dataframe thead th {
+  text-align: right;
+}
+
+/* Columns added by add_semen_percentile_cols, on the semen page */
+.added-col, td:has(> .added-col) {
+  background-color: #e8f1fb;
+}

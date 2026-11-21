@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>seminal.semen &mdash; seminal 0.0.1a1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=dd2c8cf4" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=c1d6fd47"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=fd10adb8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            seminal
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#fsh-alone">FSH alone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#full-logistic-model">Full logistic model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#semen-parameters-against-the-who-reference-distribution">Semen parameters against the WHO reference distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#score-a-cohort">Score a cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#library-overview">Library overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../_notebooks/00_quickstart.html">seminal quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/00_quickstart.html#one-patient">One patient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/00_quickstart.html#the-fsh-curve">The FSH curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/00_quickstart.html#scoring-a-cohort">Scoring a cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/00_quickstart.html#explaining-a-prediction">Explaining a prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/00_quickstart.html#who-2021-semen-reference">WHO 2021 semen reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/00_quickstart.html#where-to-go-next">Where to go next</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage_guide.html">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide.html#fsh-alone-azoospermia-fsh">FSH alone: <code class="docutils literal notranslate"><span class="pre">azoospermia_fsh</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide.html#full-model-azoospermia-lr">Full model: <code class="docutils literal notranslate"><span class="pre">azoospermia_lr</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../usage_guide.html#explaining-a-prediction">Explaining a prediction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide.html#cohorts-add-azoospermia-risk-cols">Cohorts: <code class="docutils literal notranslate"><span class="pre">add_azoospermia_risk_cols</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../inputs.html">Input Requirements and Common Pitfalls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../inputs.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../inputs.html#common-pitfalls">Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../model.html">The Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html#outcome">Outcome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html#development">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html#fsh-only-quadratic">FSH-only quadratic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html#logistic-regression">Logistic regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html#what-the-reproduction-shows">What the reproduction shows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html#discrimination">Discrimination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html#what-is-not-implemented">What is not implemented</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../semen.html">WHO 2021 Semen Reference Distributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../semen.html#where-a-value-sits">Where a value sits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../semen.html#lower-reference-limits">Lower reference limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../semen.html#cohorts">Cohorts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../semen.html#the-table">The table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../semen.html#things-to-know">Things to know</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data.html">The Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../data.html#tradewell-et-al-2022">Tradewell et al. 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data.html#download-and-harmonize">Download and harmonize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data.html#two-exclusion-rules">Two exclusion rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data.html#things-to-know">Things to know</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../_notebooks/01_reproduce_tradewell.html">Reproducing Tradewell et al. 2022</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/01_reproduce_tradewell.html#cohort-reconstruction">1. Cohort reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/01_reproduce_tradewell.html#table-1">2. Table 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/01_reproduce_tradewell.html#refit-on-the-miami-development-cohort">3. Refit on the Miami development cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/01_reproduce_tradewell.html#external-validation-in-depth">4. External validation in depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/01_reproduce_tradewell.html#recalibration-per-site">5. Recalibration per site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/01_reproduce_tradewell.html#sensitivity-analyses">6. Sensitivity analyses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/01_reproduce_tradewell.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../_notebooks/02_reproduce_campbell.html">Reproducing Campbell et al. 2021 (WHO 2021 reference distribution)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/02_reproduce_campbell.html#the-reference-men">1. The reference men</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/02_reproduce_campbell.html#table-3-recompute-the-nine-centiles">2. Table 3: recompute the nine centiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/02_reproduce_campbell.html#table-2-the-2010-to-2020-studies">3. Table 2: the 2010 to 2020 studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/02_reproduce_campbell.html#uncertainty-on-the-5th-centile">4. Uncertainty on the 5th centile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/02_reproduce_campbell.html#heterogeneity-between-studies">5. Heterogeneity between studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/02_reproduce_campbell.html#how-good-is-the-interpolated-percentile">6. How good is the interpolated percentile?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/02_reproduce_campbell.html#scoring-a-cohort-with-add-semen-percentile-cols">7. Scoring a cohort with <code class="docutils literal notranslate"><span class="pre">add_semen_percentile_cols</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/02_reproduce_campbell.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#single-patient">Single patient</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#seminal.azoospermia_fsh"><code class="docutils literal notranslate"><span class="pre">azoospermia_fsh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#seminal.azoospermia_lr"><code class="docutils literal notranslate"><span class="pre">azoospermia_lr()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#cohorts">Cohorts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#seminal.add_azoospermia_risk_cols"><code class="docutils literal notranslate"><span class="pre">add_azoospermia_risk_cols()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#who-2021-semen-reference-distributions">WHO 2021 semen reference distributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#seminal.semen_percentile"><code class="docutils literal notranslate"><span class="pre">semen_percentile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#seminal.lower_reference_limit"><code class="docutils literal notranslate"><span class="pre">lower_reference_limit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#seminal.below_reference"><code class="docutils literal notranslate"><span class="pre">below_reference()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#seminal.semen_reference"><code class="docutils literal notranslate"><span class="pre">semen_reference()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#seminal.add_semen_percentile_cols"><code class="docutils literal notranslate"><span class="pre">add_semen_percentile_cols()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#constants">Constants</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About seminal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Contributors/Maintainers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../citing.html">Citing seminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-0-1a1-2026-11-21">Version 0.0.1a1 (2026-11-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-0-0a4-2026-11-20">Version 0.0.0a4 (2026-11-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-0-0a3-2026-11-20">Version 0.0.0a3 (2026-11-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-0-0a2-2026-11-20">Version 0.0.0a2 (2026-11-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-0-0a1-2026-11-20">Version 0.0.0a1 (2026-11-20)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">seminal</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">seminal.semen</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<img src="../../_static/seminal_logo.svg" alt="seminal Python library"
+     width="220" class="seminal-logo" draggable="false" oncontextmenu="return false;">
+
+           <div itemprop="articleBody">
+             
+  <h1>Source code for seminal.semen</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""WHO 2021 (6th edition) semen reference distributions.</span>
+
+<span class="sd">Implements the distribution of semen examination results in fertile men from</span>
+<span class="sd">Campbell MJ, Lotti F, Baldi E, et al. Distribution of semen examination</span>
+<span class="sd">results 2020 - A follow up of data collated for the WHO semen analysis manual</span>
+<span class="sd">2010. Andrology 2021;9(4):817-822 (doi:10.1111/andr.12983), which the WHO</span>
+<span class="sd">laboratory manual, 6th edition (2021) adopted as its reference distribution.</span>
+
+<span class="sd">The men are partners of women who conceived within 12 months of trying</span>
+<span class="sd">(time to pregnancy &lt;= 12 months). The 5th centile of each parameter is the</span>
+<span class="sd">conventional "lower reference limit"; the paper is explicit that it is not a</span>
+<span class="sd">threshold between fertile and infertile.</span>
+
+<span class="sd">Two tables are carried, exactly as printed:</span>
+
+<span class="sd">* ``"who2020"`` (default): Table 3, Analysis 2, the 2010 reference data</span>
+<span class="sd">  combined with studies published 2010-2020 (3,586 men, 12 countries).</span>
+<span class="sd">* ``"2010_2020"``: Table 2, Analysis 1, the 2010-2020 studies alone.</span>
+
+<span class="sd">The 5th-edition (WHO 2010, Cooper et al. 2010) lower reference limits are</span>
+<span class="sd">included under ``"who2010"`` for labs that still report against them.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Published tables</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="n">CENTILES</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mf">97.5</span><span class="p">)</span>
+
+<span class="n">PARAMETERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"volume"</span><span class="p">:</span> <span class="s2">"Semen volume (mL)"</span><span class="p">,</span>
+    <span class="s2">"concentration"</span><span class="p">:</span> <span class="s2">"Sperm concentration (10^6/mL)"</span><span class="p">,</span>
+    <span class="s2">"total_number"</span><span class="p">:</span> <span class="s2">"Total sperm number (10^6/ejaculate)"</span><span class="p">,</span>
+    <span class="s2">"total_motility"</span><span class="p">:</span> <span class="s2">"Total motility, PR + NP (%)"</span><span class="p">,</span>
+    <span class="s2">"progressive_motility"</span><span class="p">:</span> <span class="s2">"Progressive motility, PR (%)"</span><span class="p">,</span>
+    <span class="s2">"nonprogressive_motility"</span><span class="p">:</span> <span class="s2">"Non-progressive motility, NP (%)"</span><span class="p">,</span>
+    <span class="s2">"immotile"</span><span class="p">:</span> <span class="s2">"Immotile spermatozoa, IM (%)"</span><span class="p">,</span>
+    <span class="s2">"vitality"</span><span class="p">:</span> <span class="s2">"Vitality, live spermatozoa (%)"</span><span class="p">,</span>
+    <span class="s2">"normal_forms"</span><span class="p">:</span> <span class="s2">"Normal forms (%)"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Campbell et al. 2021, Table 3 ("Analysis 2: WHO 2020").</span>
+<span class="c1"># n, then the nine centiles in CENTILES order, then the 95% CI of the 5th.</span>
+<span class="n">_WHO2020</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"volume"</span><span class="p">:</span>                  <span class="p">(</span><span class="mi">3586</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">6.2</span><span class="p">,</span> <span class="mf">6.9</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)),</span>
+    <span class="s2">"concentration"</span><span class="p">:</span>           <span class="p">(</span><span class="mi">3587</span><span class="p">,</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">166</span><span class="p">,</span> <span class="mi">208</span><span class="p">,</span> <span class="mi">254</span><span class="p">),</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">18</span><span class="p">)),</span>
+    <span class="s2">"total_number"</span><span class="p">:</span>            <span class="p">(</span><span class="mi">3584</span><span class="p">,</span> <span class="p">(</span><span class="mi">29</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">363</span><span class="p">,</span> <span class="mi">561</span><span class="p">,</span> <span class="mi">701</span><span class="p">,</span> <span class="mi">865</span><span class="p">),</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">)),</span>
+    <span class="s2">"total_motility"</span><span class="p">:</span>          <span class="p">(</span><span class="mi">3488</span><span class="p">,</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">92</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">43</span><span class="p">)),</span>
+    <span class="s2">"progressive_motility"</span><span class="p">:</span>    <span class="p">(</span><span class="mi">3389</span><span class="p">,</span> <span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">81</span><span class="p">),</span> <span class="p">(</span><span class="mi">29</span><span class="p">,</span> <span class="mi">31</span><span class="p">)),</span>
+    <span class="s2">"nonprogressive_motility"</span><span class="p">:</span> <span class="p">(</span><span class="mi">3387</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">38</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="s2">"immotile"</span><span class="p">:</span>                <span class="p">(</span><span class="mi">2800</span><span class="p">,</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">65</span><span class="p">),</span> <span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">)),</span>
+    <span class="s2">"vitality"</span><span class="p">:</span>                <span class="p">(</span><span class="mi">1337</span><span class="p">,</span> <span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">98</span><span class="p">),</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">56</span><span class="p">)),</span>
+    <span class="s2">"normal_forms"</span><span class="p">:</span>            <span class="p">(</span><span class="mi">3335</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.9</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)),</span>
+<span class="p">}</span>
+
+<span class="c1"># Campbell et al. 2021, Table 2 ("Analysis 1: 2010-2020 data").</span>
+<span class="n">_2010_2020</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"volume"</span><span class="p">:</span>                  <span class="p">(</span><span class="mi">1789</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">)),</span>
+    <span class="s2">"concentration"</span><span class="p">:</span>           <span class="p">(</span><span class="mi">1789</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">157</span><span class="p">,</span> <span class="mi">203</span><span class="p">,</span> <span class="mi">243</span><span class="p">),</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">)),</span>
+    <span class="s2">"total_number"</span><span class="p">:</span>            <span class="p">(</span><span class="mi">1789</span><span class="p">,</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">288</span><span class="p">,</span> <span class="mi">467</span><span class="p">,</span> <span class="mi">573</span><span class="p">,</span> <span class="mi">679</span><span class="p">),</span> <span class="p">(</span><span class="mi">33</span><span class="p">,</span> <span class="mi">40</span><span class="p">)),</span>
+    <span class="s2">"total_motility"</span><span class="p">:</span>          <span class="p">(</span><span class="mi">1789</span><span class="p">,</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">94</span><span class="p">),</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">)),</span>
+    <span class="s2">"progressive_motility"</span><span class="p">:</span>    <span class="p">(</span><span class="mi">1789</span><span class="p">,</span> <span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">84</span><span class="p">),</span> <span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">30</span><span class="p">)),</span>
+    <span class="s2">"nonprogressive_motility"</span><span class="p">:</span> <span class="p">(</span><span class="mi">1789</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="s2">"immotile"</span><span class="p">:</span>                <span class="p">(</span><span class="mi">1101</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">66</span><span class="p">),</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">)),</span>
+    <span class="s2">"vitality"</span><span class="p">:</span>                <span class="p">(</span><span class="mi">1337</span><span class="p">,</span> <span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">98</span><span class="p">),</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">56</span><span class="p">)),</span>
+    <span class="s2">"normal_forms"</span><span class="p">:</span>            <span class="p">(</span><span class="mi">1621</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">34</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)),</span>
+<span class="p">}</span>
+
+<span class="c1"># WHO 2010 (5th edition; Cooper et al., Hum Reprod Update 2010) lower reference</span>
+<span class="c1"># limits (5th centile). Only the limits are carried, not the full distribution.</span>
+<span class="n">_WHO2010_LRL</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"volume"</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
+    <span class="s2">"concentration"</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+    <span class="s2">"total_number"</span><span class="p">:</span> <span class="mi">39</span><span class="p">,</span>
+    <span class="s2">"total_motility"</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+    <span class="s2">"progressive_motility"</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="s2">"vitality"</span><span class="p">:</span> <span class="mi">58</span><span class="p">,</span>
+    <span class="s2">"normal_forms"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">_TABLES</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"who2020"</span><span class="p">:</span> <span class="n">_WHO2020</span><span class="p">,</span> <span class="s2">"2010_2020"</span><span class="p">:</span> <span class="n">_2010_2020</span><span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_table</span><span class="p">(</span><span class="n">edition</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_TABLES</span><span class="p">[</span><span class="n">edition</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"edition must be one of </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">_TABLES</span><span class="p">)</span><span class="si">}</span><span class="s2"> or 'who2010'"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_parameter</span><span class="p">(</span><span class="n">parameter</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">parameter</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">PARAMETERS</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"parameter must be one of </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">PARAMETERS</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Public API</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="semen_reference">
+<a class="viewcode-back" href="../../api.html#seminal.semen_reference">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">semen_reference</span><span class="p">(</span><span class="n">parameter</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">edition</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"who2020"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The published reference distribution as a DataFrame.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    parameter : str, optional</span>
+<span class="sd">        One of ``PARAMETERS``; omit for every parameter.</span>
+<span class="sd">    edition : {"who2020", "2010_2020"}, default "who2020"</span>
+<span class="sd">        Table 3 (WHO 2020 combined data) or Table 2 (2010-2020 studies only)</span>
+<span class="sd">        of Campbell et al. 2021.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        One row per parameter: ``label``, ``n``, the nine centile columns</span>
+<span class="sd">        (``p2.5`` ... ``p97.5``) and ``p5_ci_low`` / ``p5_ci_high``.</span>
+<span class="sd">    """</span>
+    <span class="n">tab</span> <span class="o">=</span> <span class="n">_table</span><span class="p">(</span><span class="n">edition</span><span class="p">)</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">parameter</span><span class="p">]</span> <span class="k">if</span> <span class="n">parameter</span> <span class="k">else</span> <span class="nb">list</span><span class="p">(</span><span class="n">PARAMETERS</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+        <span class="n">_check_parameter</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">ci</span> <span class="o">=</span> <span class="n">tab</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"parameter"</span><span class="p">:</span> <span class="n">k</span><span class="p">,</span> <span class="s2">"label"</span><span class="p">:</span> <span class="n">PARAMETERS</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="s2">"n"</span><span class="p">:</span> <span class="n">n</span><span class="p">}</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="sa">f</span><span class="s2">"p</span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">CENTILES</span><span class="p">,</span> <span class="n">vals</span><span class="p">)})</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">"p5_ci_low"</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s2">"p5_ci_high"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ci</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"parameter"</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="lower_reference_limit">
+<a class="viewcode-back" href="../../api.html#seminal.lower_reference_limit">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">lower_reference_limit</span><span class="p">(</span><span class="n">parameter</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">edition</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"who2020"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The 5th centile ("lower reference limit") for one parameter.</span>
+
+<span class="sd">    ``edition="who2010"`` returns the 5th-edition limit (Cooper et al. 2010).</span>
+<span class="sd">    """</span>
+    <span class="n">_check_parameter</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">edition</span> <span class="o">==</span> <span class="s2">"who2010"</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">_WHO2010_LRL</span><span class="p">[</span><span class="n">parameter</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WHO 2010 did not publish a limit for </span><span class="si">{</span><span class="n">parameter</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">_table</span><span class="p">(</span><span class="n">edition</span><span class="p">)[</span><span class="n">parameter</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="n">CENTILES</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">5</span><span class="p">)])</span></div>
+
+
+
+<div class="viewcode-block" id="semen_percentile">
+<a class="viewcode-back" href="../../api.html#seminal.semen_percentile">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">semen_percentile</span><span class="p">(</span><span class="n">parameter</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">edition</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"who2020"</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Where a value sits in the fertile-man distribution, in percent.</span>
+
+<span class="sd">    Linear interpolation between the published centiles. Values below the</span>
+<span class="sd">    2.5th centile return 2.5 and values above the 97.5th return 97.5, since</span>
+<span class="sd">    the tails are not published. The result is therefore an approximation</span>
+<span class="sd">    of the empirical percentile, exact only at the nine published points.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    parameter : str</span>
+<span class="sd">        One of ``PARAMETERS``.</span>
+<span class="sd">    value : float or array-like</span>
+<span class="sd">        The measured value, in the parameter's published units.</span>
+<span class="sd">    edition : {"who2020", "2010_2020"}, default "who2020"</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or numpy.ndarray</span>
+<span class="sd">        Percentile between 2.5 and 97.5; NaN for NaN input.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; semen_percentile("concentration", 16)</span>
+<span class="sd">    5.0</span>
+<span class="sd">    &gt;&gt;&gt; round(semen_percentile("concentration", 66), 1)</span>
+<span class="sd">    50.0</span>
+<span class="sd">    """</span>
+    <span class="n">_check_parameter</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_table</span><span class="p">(</span><span class="n">edition</span><span class="p">)[</span><span class="n">parameter</span><span class="p">]</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">CENTILES</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="c1"># np.interp needs strictly increasing xp; collapse ties (e.g. NP 1, 1) by</span>
+    <span class="c1"># keeping the last occurrence so a value at the tie maps to the upper centile.</span>
+    <span class="n">keep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">xp</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="n">xp</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="kc">True</span><span class="p">]</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xp</span><span class="p">[</span><span class="n">keep</span><span class="p">],</span> <span class="n">fp</span><span class="p">[</span><span class="n">keep</span><span class="p">])</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="k">if</span> <span class="n">out</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">out</span></div>
+
+
+
+<div class="viewcode-block" id="below_reference">
+<a class="viewcode-back" href="../../api.html#seminal.below_reference">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">below_reference</span><span class="p">(</span><span class="n">parameter</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">edition</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"who2020"</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""True where ``value`` is below the lower reference limit (5th centile).</span>
+
+<span class="sd">    Returns a bool, or a boolean/object array for array input (NaN stays NaN).</span>
+<span class="sd">    """</span>
+    <span class="n">lrl</span> <span class="o">=</span> <span class="n">lower_reference_limit</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">edition</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">lrl</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="k">if</span> <span class="n">out</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">out</span></div>
+
+
+
+<div class="viewcode-block" id="add_semen_percentile_cols">
+<a class="viewcode-back" href="../../api.html#seminal.add_semen_percentile_cols">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_semen_percentile_cols</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="n">columns</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">edition</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"who2020"</span><span class="p">,</span>
+    <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"_pct"</span><span class="p">,</span>
+    <span class="n">flag_suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"_below_lrl"</span><span class="p">,</span>
+    <span class="n">copy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Add percentile (and optional below-limit flag) columns to a DataFrame.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pandas.DataFrame</span>
+<span class="sd">        One row per semen analysis.</span>
+<span class="sd">    columns : dict, optional</span>
+<span class="sd">        Mapping of parameter name to column name, e.g.</span>
+<span class="sd">        ``{"concentration": "conc", "progressive_motility": "pr"}``. Defaults</span>
+<span class="sd">        to the parameter names themselves for any that are present in ``df``.</span>
+<span class="sd">    edition : {"who2020", "2010_2020"}, default "who2020"</span>
+<span class="sd">    suffix : str, default "_pct"</span>
+<span class="sd">        Appended to the column name for the percentile column.</span>
+<span class="sd">    flag_suffix : str or None, default "_below_lrl"</span>
+<span class="sd">        Appended for the boolean below-5th-centile column; ``None`` to skip.</span>
+<span class="sd">    copy : bool, default True</span>
+<span class="sd">        Work on a copy and leave ``df`` unchanged.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">    """</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">if</span> <span class="n">copy</span> <span class="k">else</span> <span class="n">df</span>
+    <span class="k">if</span> <span class="n">columns</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">PARAMETERS</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">parameter</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">_check_parameter</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+        <span class="n">vals</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">"coerce"</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+        <span class="n">out</span><span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">col</span><span class="si">}{</span><span class="n">suffix</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span> <span class="o">=</span> <span class="n">semen_percentile</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">edition</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">flag_suffix</span><span class="p">:</span>
+            <span class="n">out</span><span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">col</span><span class="si">}{</span><span class="n">flag_suffix</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">below_reference</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">edition</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">"boolean"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span></div>
+
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"CENTILES"</span><span class="p">,</span>
+    <span class="s2">"PARAMETERS"</span><span class="p">,</span>
+    <span class="s2">"semen_reference"</span><span class="p">,</span>
+    <span class="s2">"lower_reference_limit"</span><span class="p">,</span>
+    <span class="s2">"semen_percentile"</span><span class="p">,</span>
+    <span class="s2">"below_reference"</span><span class="p">,</span>
+    <span class="s2">"add_semen_percentile_cols"</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Leon Shpaner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
