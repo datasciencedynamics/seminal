@@ -20,3 +20,23 @@ img.seminal-logo {
   user-select: none;
   -webkit-user-drag: none;
 }
+
+/* Notebook output tables (pandas DataFrames): scroll instead of overflowing the
+   content column; the RTD theme only wraps its own tables. */
+.cell_output .output.text_html,
+.cell_output .output.text_plain {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.cell_output table.dataframe {
+  font-size: 0.85em;
+  white-space: nowrap;
+  border-collapse: collapse;
+}
+.cell_output table.dataframe th,
+.cell_output table.dataframe td {
+  padding: 2px 8px;
+}
+.cell_output table.dataframe thead th {
+  text-align: right;
+}
