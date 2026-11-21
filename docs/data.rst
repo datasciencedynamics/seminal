@@ -1,18 +1,31 @@
 The Data
 ========
 
-The study data are public under CC0 on Harvard Dataverse
-(`doi:10.7910/DVN/EQFMCM <https://doi.org/10.7910/DVN/EQFMCM>`_): one Excel
-file with a sheet per site (Miami 1,070 rows, Milan 1,955, Chicago 643) and a
-key. The repository never commits data; ``data/`` is gitignored.
+Two public deposits stand behind the package. The repository never commits
+data; ``data/`` is gitignored.
+
+* **Tradewell et al. 2022**, CC0 on Harvard Dataverse
+  (`doi:10.7910/DVN/EQFMCM <https://doi.org/10.7910/DVN/EQFMCM>`_): one Excel
+  file with a sheet per site (Miami 1,070 rows, Milan 1,955, Chicago 643) and a
+  key.
+* **Campbell et al. 2021**, CC BY on the University of Dundee research portal
+  (`doi:10.15132/10000163 <https://doi.org/10.15132/10000163>`_):
+  ``Fertile_Man_2020.xlsx``, the 3,589 reference men behind the WHO 2021
+  distribution, with the contributing study (``PI``) and the nine parameters.
+  ``preprocessing.py`` renames the columns and sets ``NO RESULT`` to missing;
+  nothing is excluded or imputed. :doc:`_notebooks/02_reproduce_campbell`
+  recomputes the published tables from it.
+
+Tradewell et al. 2022
+---------------------
 
 Download and harmonize
 ----------------------
 
 .. code-block:: bash
 
-   make data_gen      # python data_gen.py      -> data/raw/      (one Parquet per sheet)
-   make preprocess    # python preprocessing.py -> data/processed/tradewell_2022.parquet
+   make data_gen      # python data_gen.py      -> data/raw/      (both deposits)
+   make preprocess    # python preprocessing.py -> data/processed/{tradewell_2022,fertile_man_2020}.parquet
 
 ``data_gen.py`` only fetches and saves. ``preprocessing.py`` renames each
 site's columns to the five model inputs, applies the exclusions, builds the

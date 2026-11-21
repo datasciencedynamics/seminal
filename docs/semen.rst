@@ -181,6 +181,12 @@ confidence interval of the 5th centile.
 ``edition="2010_2020"`` selects Table 2 of the same paper, the 2010 to 2020
 studies without the 2010 reference data (n = 1,789 for most parameters).
 
+Both tables are checked against the authors' deposit in
+:doc:`_notebooks/02_reproduce_campbell`: every n matches, the 5th centiles
+reproduce exactly, and 80 of 81 cells of Table 3 and 81 of 81 of Table 2
+reproduce with the Weibull quantile definition (the remaining cell is a
+median of 209.5 printed as 210).
+
 Things to know
 --------------
 

@@ -29,7 +29,7 @@ extensions = [
 _NB_SRC = os.path.abspath("../notebooks")
 _NB_DST = os.path.abspath("_notebooks")
 os.makedirs(_NB_DST, exist_ok=True)
-for _nb in ["00_quickstart.ipynb", "01_reproduce_tradewell.ipynb"]:
+for _nb in ["00_quickstart.ipynb", "01_reproduce_tradewell.ipynb", "02_reproduce_campbell.ipynb"]:
     shutil.copy2(os.path.join(_NB_SRC, _nb), os.path.join(_NB_DST, _nb))
 
 # The notebooks are written to run from notebooks/ and refer to ../data and

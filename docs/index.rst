@@ -62,6 +62,7 @@ Table of Contents
    semen
    data
    _notebooks/01_reproduce_tradewell
+   _notebooks/02_reproduce_campbell
    api
 
 .. toctree::

@@ -77,6 +77,7 @@ Table of Contents
 - :doc:`semen`
 - :doc:`data`
 - :doc:`_notebooks/01_reproduce_tradewell`
+- :doc:`_notebooks/02_reproduce_campbell`
 - :doc:`api`
 
 **About seminal**
