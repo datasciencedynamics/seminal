@@ -113,7 +113,22 @@ seminal/
 
 ## Citation
 
-If you use `seminal`, please cite the software (see `CITATION.cff`) and the original paper:
+If you use `seminal`, please cite the software and the original paper.
+
+```bibtex
+@software{shpaner_2026_24411154,
+   author       = {Shpaner, Leonid},
+   title        = {seminal: published risk equations in andrology and male reproductive health},
+   month        = nov,
+   year         = 2026,
+   publisher    = {Zenodo},
+   version      = {0.0.0a4},
+   doi          = {10.5281/zenodo.24411154},
+   url          = {https://doi.org/10.5281/zenodo.24411154}
+}
+```
+
+`CITATION.cff` carries the same metadata (GitHub shows it as "Cite this repository"). The original paper:
 
 Tradewell MB, Cazzaniga W, Pagani RL, et al. Algorithms for Predicting the Probability of Azoospermia from Follicle Stimulating Hormone: Design and Multi-Institutional External Validation. *World J Mens Health*. 2022;40(4):600-607. doi:10.5534/wjmh.210138
 
