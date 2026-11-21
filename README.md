@@ -2,7 +2,8 @@
 
 <br>
 
-[![PyPI](https://img.shields.io/pypi/v/seminal.svg)](https://pypi.org/project/seminal/)
+[![PyPI](https://img.shields.io/pypi/v/seminal.svg?include_prereleases)](https://pypi.org/project/seminal/)
+[![Docs](https://img.shields.io/badge/docs-lshpaner.github.io%2Fseminal-1F6FB2)](https://lshpaner.github.io/seminal/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/lshpaner/seminal/tree/main?tab=MIT-1-ov-file)
 
 `seminal` is a Python library of published risk equations in andrology and male reproductive health, implemented with the coefficients exactly as printed in the source papers and checked against the authors' own validation data.
@@ -14,10 +15,10 @@ The first release implements the two azoospermia prediction models of Tradewell 
 ## Installation
 
 ```bash
-pip install seminal
+pip install --pre seminal
 ```
 
-Requires Python 3.8+, numpy 1.20+ and pandas 1.3+.
+`--pre` is needed while the package is in alpha. Requires Python 3.8+, numpy 1.20+ and pandas 1.3+. Full documentation: [lshpaner.github.io/seminal](https://lshpaner.github.io/seminal/).
 
 ## Usage
 
@@ -81,14 +82,21 @@ The study data are public under CC0 on [Harvard Dataverse](https://doi.org/10.79
 | Site | n | AUC, logistic (paper) | AUC, FSH-only (paper) |
 |---|---|---|---|
 | Milan | 1,955 | 0.786 (0.79) | 0.786 (0.78) |
-| Chicago | 614 | 0.723 (0.72) | 0.708 (0.71) |
+| Chicago | 596 | 0.718 (0.72) | 0.707 (0.71) |
 
 ### Things to know about the data
 
-- The deposit contains all three sites as separate sheets. Miami (1,070 rows) and Chicago (643) are pre-exclusion; applying the paper's stated exclusions (prior vasectomy, Y microdeletion, solitary testis, testosterone or steroid use) gives 943 and 614 versus the paper's 946 and 596. Milan (1,955) matches exactly.
+- The deposit contains all three sites as separate sheets. Miami (1,070 rows) and Chicago (643) are pre-exclusion. Applying the exclusions exactly as the paper states them (prior vasectomy, Y microdeletion, solitary testis, testosterone or steroid use) gives 943 and 614, not the paper's 946 and 596. The paper's counts are recovered exactly by not excluding Y microdeletions, reading solitary testis from the absence codes (Miami) or a zero volume (Chicago), and defining azoospermia as concentration below 0.01 M/mL. `preprocessing.py` applies that reproduced rule by default (`--exclusions stated` gives the literal one); the choice does not change the AUCs. Milan (1,955) matches either way.
 - Chicago testis volumes are ultrasound long-axis measurements in cm (median 4.5), not orchidometer volumes in mL (median 14 to 15 at Miami and Milan). The paper does not address this; `preprocessing.py` labels the measurement method per site.
 - The logistic coefficients are printed to one or two significant figures. At the extremes of testosterone and age this rounding alone can move the log-odds by several tenths. A refit on the Miami data recovers full-precision values; that is planned for a later release and kept separate from the as-published model.
 - Azoospermia was confirmed on at least two semen analyses. The outcome in the Miami and Chicago sheets is sperm concentration = 0; Milan carries an explicit flag plus obstructive/non-obstructive type.
+
+## Notebooks
+
+- [`00_quickstart.ipynb`](notebooks/00_quickstart.ipynb): one patient, the FSH curve, scoring the validation cohorts, ROC / PR / calibration per site, explaining a prediction.
+- [`01_reproduce_tradewell.ipynb`](notebooks/01_reproduce_tradewell.ipynb): rebuild the paper's cohort and Table 1 from the deposit, refit the logistic model on Miami, calibration-in-the-large and slope per site, decision curves, intercept-only recalibration.
+
+Both run against `data/processed/`, built by `make data_gen preprocess`. Notebooks are committed without outputs; the rendered versions are on the documentation site.
 
 ## Repository layout
 
@@ -98,7 +106,7 @@ seminal/
 ├── tests/              unit tests plus optional validation against data/
 ├── data_gen.py         download the Dataverse file into data/raw
 ├── preprocessing.py    harmonize sites into data/processed
-├── notebooks/          worked examples
+├── notebooks/          quickstart and the reproduction of Tradewell et al.
 └── Makefile            venv, install, test, data_gen, preprocess, build
 ```
 
@@ -114,4 +122,4 @@ MIT. The study data on Dataverse are CC0.
 
 ## Author
 
-Leonid Shpaner, Health Analytics Data Scientist, UCLA Health CTSI. [leonshpaner.com](https://www.leonshpaner.com)
+Leonid Shpaner, University of San Diego and Data Science Dynamics. [leonshpaner.com](https://www.leonshpaner.com)
