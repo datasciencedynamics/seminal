@@ -72,7 +72,20 @@ lower_reference_limit("progressive_motility")   # 30  (WHO 2021; 32 under editio
 below_reference("normal_forms", 3)         # True
 ```
 
-`semen_reference()` returns the full published table (2.5th to 97.5th centiles, with the 95% CI of the 5th), and `add_semen_percentile_cols(df, {"concentration": "conc", ...})` adds a percentile and a below-limit flag per parameter for a cohort. Percentiles are interpolated between the nine published centiles and clipped to [2.5, 97.5].
+`semen_reference()` returns the full published table (2.5th to 97.5th centiles, with the 95% CI of the 5th). Percentiles are interpolated between the nine published centiles and clipped to [2.5, 97.5].
+
+For a cohort, map parameter names to your column names:
+
+```python
+from seminal import add_semen_percentile_cols
+
+scored = add_semen_percentile_cols(
+    df, columns={"concentration": "conc", "progressive_motility": "pr", "normal_forms": "morph"}
+)
+# adds conc_pct, conc_below_lrl, pr_pct, pr_below_lrl, morph_pct, morph_below_lrl
+```
+
+Units must match the reference (mL, 10^6/mL, 10^6 per ejaculate, percentages 0 to 100); morphology must be strict criteria; missing values pass through as NaN. `notebooks/00_quickstart.ipynb` and section 7 of `notebooks/02_reproduce_campbell.ipynb` show this on a toy export and on the reference men themselves.
 
 ## The equations
 
