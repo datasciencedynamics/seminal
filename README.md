@@ -168,7 +168,7 @@ World Health Organization. *WHO laboratory manual for the examination and proces
 
 ## License
 
-MIT. The Tradewell data on Dataverse are CC0; the Fertile Man deposit is CC BY 4.0.
+MIT. The Tradewell data on Dataverse are CC0; the Fertile Man deposit is CC BY 4.0. The Dundee portal refuses scripted downloads, so `data_gen.py` falls back to a verbatim copy of the deposit attached to the GitHub release (sha256 checked); the original is at https://doi.org/10.15132/10000163.
 
 ## Author
 

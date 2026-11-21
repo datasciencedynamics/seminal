@@ -17,6 +17,7 @@ Usage:
 
 from __future__ import annotations
 
+import hashlib
 import io
 from pathlib import Path
 
@@ -43,6 +44,14 @@ HEADERS = {"User-Agent": "Mozilla/5.0 (seminal data_gen)"}
 # Campbell et al. 2021 / WHO 2021 reference men (Dundee research portal, CC BY)
 FERTILE_MAN_DOI = "doi:10.15132/10000163"
 FERTILE_MAN_URL = "https://discovery.dundee.ac.uk/files/56864058/Fertile_Man_2020.xlsx"
+# The Dundee portal refuses scripted downloads (HTTP 403), so a verbatim copy of
+# the CC BY deposit is attached to the seminal GitHub release and used as the
+# fallback. The sha256 below is checked whichever source succeeds.
+FERTILE_MAN_MIRROR = (
+    "https://github.com/datasciencedynamics/seminal/releases/download/"
+    "v0.0.1a1/Fertile_Man_2020.xlsx"
+)
+FERTILE_MAN_SHA256 = "5c6f658db687a42e28524ac09c5ffc182c18efd78b5122dd6c05a67da88d9b24"
 FERTILE_MAN_NAME = "Fertile_Man_2020.xlsx"
 FERTILE_MAN_SHEET = "Fertile Man 2020"
 
@@ -108,10 +117,22 @@ def fetch_fertile_man(out_dir: Path, csv: bool, overwrite: bool, from_file: Path
         content = Path(from_file).read_bytes()
         xlsx_path.write_bytes(content)
     else:
-        typer.echo(f"fetch  {FERTILE_MAN_DOI} -> {FERTILE_MAN_NAME}")
-        resp = requests.get(FERTILE_MAN_URL, headers=HEADERS, timeout=120)
-        resp.raise_for_status()
-        content = resp.content
+        content = None
+        for url in (FERTILE_MAN_URL, FERTILE_MAN_MIRROR):
+            typer.echo(f"fetch  {FERTILE_MAN_DOI} <- {url}")
+            try:
+                resp = requests.get(url, headers=HEADERS, timeout=120)
+                resp.raise_for_status()
+            except requests.RequestException as exc:
+                typer.echo(f"       failed ({exc}); trying next source")
+                continue
+            content = resp.content
+            break
+        if content is None:
+            raise typer.Exit("could not download Fertile_Man_2020.xlsx; use --from-file")
+        digest = hashlib.sha256(content).hexdigest()
+        if digest != FERTILE_MAN_SHA256:
+            raise typer.Exit(f"sha256 mismatch for {FERTILE_MAN_NAME}: {digest}")
         xlsx_path.write_bytes(content)
 
     # One data sheet (the second sheet in the file is empty). Values are kept
