@@ -23,13 +23,13 @@ PyPI: https://pypi.org/project/seminal/
 GitHub: https://github.com/datasciencedynamics/seminal
 Docs: https://datasciencedynamics.com/seminal
 
-Version: 0.0.0a2
+Version: 0.0.0a3
 
 """
 
 __author__ = "Leonid Shpaner"
 __email__ = "lshpaner@ucla.edu"
-__version__ = "0.0.0a2"
+__version__ = "0.0.0a3"
 
 
 def custom_help(obj=None):
