@@ -44,17 +44,60 @@ labs that still report against them.
 Cohorts
 -------
 
+``add_semen_percentile_cols`` takes a DataFrame with one row per semen
+analysis and a mapping of parameter name to column name. For each mapped
+column it adds a percentile column (``_pct``, 2.5 to 97.5) and a below-limit
+flag (``_below_lrl``, below the WHO 5th centile).
+
 .. code-block:: python
 
    from seminal import add_semen_percentile_cols
 
-   scored = add_semen_percentile_cols(
-       df, {"concentration": "conc", "progressive_motility": "pr", "normal_forms": "morph"}
-   )
-   # adds conc_pct, conc_below_lrl, pr_pct, pr_below_lrl, morph_pct, morph_below_lrl
+   df["tsc"] = df["vol_ml"] * df["conc"]        # total number, if not recorded
 
-Unparseable values become ``NaN`` in the percentile column and ``<NA>`` in the
-flag column.
+   scored = add_semen_percentile_cols(
+       df,
+       columns={
+           "volume": "vol_ml",
+           "concentration": "conc",
+           "total_number": "tsc",
+           "progressive_motility": "pr",
+           "normal_forms": "morph",
+       },
+       edition="who2020",                       # or "2010_2020"
+   )
+   # adds vol_ml_pct, vol_ml_below_lrl, conc_pct, conc_below_lrl, ...
+   scored["n_below_lrl"] = scored.filter(like="_below_lrl").sum(axis=1)
+
+If the columns already carry the parameter names (``volume``,
+``concentration``, ...) the mapping can be omitted.
+
+Whether the scored columns mean anything on a new dataset depends on three
+things:
+
+* **Units.** They must match ``PARAMETERS[name]["unit"]``: mL, 10\ :sup:`6`/mL,
+  10\ :sup:`6` per ejaculate, and percentages on a 0 to 100 scale. A motility
+  column stored as a fraction (0.55) scores as the 2.5th centile.
+* **Morphology.** The reference was scored with strict (Tygerberg) criteria.
+  Results under older WHO criteria run several times higher and are not
+  comparable.
+* **Missing values.** Unparseable values become ``NaN`` in the percentile
+  column and ``<NA>`` in the flag column; do not fill them before scoring.
+
+Two uses are worth naming. Describing a cohort against fertile men: the median
+``_pct`` per parameter and the share ``_below_lrl``, which is about 5% in a
+fertile reference population and far higher in an infertility clinic. And a
+simple severity count, ``n_below_lrl`` (0 to 9). The percentiles are a
+monotone transform of the raw values, so they add nothing to tree-based
+models; they put the nine parameters on one scale for plots and linear
+models.
+
+Direction matters for ``immotile``: the flag fires when the immotile fraction
+is *below* the 5th centile, the favourable end.
+
+The quickstart notebook runs this on a toy export; section 7 of
+:doc:`_notebooks/02_reproduce_campbell` scores the reference men themselves
+(5% flag overall, with wide variation by study).
 
 The table
 ---------
