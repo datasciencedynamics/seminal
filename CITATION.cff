@@ -6,8 +6,8 @@ authors:
   - family-names: Shpaner
     given-names: Leonid
     orcid: "https://orcid.org/0009-0007-5311-8095"
-version: 0.0.0a1
-date-released: 2026-11-19
+version: 0.0.0a2
+date-released: 2026-11-20
 license: MIT
 repository-code: "https://github.com/lshpaner/seminal"
 keywords:
