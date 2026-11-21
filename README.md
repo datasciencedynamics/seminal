@@ -1,10 +1,11 @@
-<img src="https://raw.githubusercontent.com/lshpaner/seminal/main/assets/seminal_logo.svg" width="300" style="border: none; outline: none; box-shadow: none;" oncontextmenu="return false;">
+<img src="https://raw.githubusercontent.com/datasciencedynamics/seminal/main/assets/seminal_logo.svg" width="300" style="border: none; outline: none; box-shadow: none;" oncontextmenu="return false;">
 
 <br>
 
 [![PyPI](https://img.shields.io/pypi/v/seminal.svg?include_prereleases)](https://pypi.org/project/seminal/)
-[![Docs](https://img.shields.io/badge/docs-lshpaner.github.io%2Fseminal-1F6FB2)](https://lshpaner.github.io/seminal/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/lshpaner/seminal/tree/main?tab=MIT-1-ov-file)
+[![Docs](https://img.shields.io/badge/docs-datasciencedynamics.com%2Fseminal-1F6FB2)](https://datasciencedynamics.com/seminal/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24411154.svg)](https://doi.org/10.5281/zenodo.24411154)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/datasciencedynamics/seminal/tree/main?tab=MIT-1-ov-file)
 
 `seminal` is a Python library of published risk equations in andrology and male reproductive health, implemented with the coefficients exactly as printed in the source papers and checked against the authors' own validation data.
 
@@ -18,7 +19,7 @@ The first release implements the two azoospermia prediction models of Tradewell 
 pip install seminal
 ```
 
-Requires Python 3.8+, numpy 1.20+ and pandas 1.3+. Full documentation: [lshpaner.github.io/seminal](https://lshpaner.github.io/seminal/).
+Requires Python 3.8+, numpy 1.20+ and pandas 1.3+. Full documentation: [datasciencedynamics.com/seminal](https://datasciencedynamics.com/seminal/).
 
 ## Usage
 

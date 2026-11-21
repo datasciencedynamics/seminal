@@ -32,9 +32,9 @@ data = ["requests", "typer", "pyarrow", "openpyxl", "ipykernel", "matplotlib", "
 docs = ["sphinx", "sphinx-rtd-theme", "sphinx-copybutton", "myst-nb", "ipykernel"]
 
 [project.urls]
-Homepage = "https://github.com/lshpaner/seminal"
-Documentation = "https://lshpaner.github.io/seminal"
-Issues = "https://github.com/lshpaner/seminal/issues"
+Homepage = "https://github.com/datasciencedynamics/seminal"
+Documentation = "https://datasciencedynamics.com/seminal"
+Issues = "https://github.com/datasciencedynamics/seminal/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

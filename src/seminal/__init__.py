@@ -20,7 +20,8 @@ Currently included (Tradewell et al., World J Mens Health 2022):
 Not affiliated with the original authors. For research use only.
 
 PyPI: https://pypi.org/project/seminal/
-GitHub: https://github.com/lshpaner/seminal
+GitHub: https://github.com/datasciencedynamics/seminal
+Docs: https://datasciencedynamics.com/seminal
 
 Version: 0.0.0a2
 
