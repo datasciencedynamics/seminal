@@ -9,7 +9,10 @@
 
 `seminal` is a Python library of published risk equations in andrology and male reproductive health, implemented with the coefficients exactly as printed in the source papers and checked against the authors' own validation data.
 
-The first release implements the two azoospermia prediction models of Tradewell et al. (World J Mens Health 2022): a quadratic in serum FSH alone, and a logistic regression on age, FSH, LH, total testosterone and mean testis volume. Both estimate the probability that a man presenting for infertility evaluation has no sperm in the ejaculate, without a semen analysis.
+It currently covers:
+
+- **Azoospermia probability** from Tradewell et al. (World J Mens Health 2022): a quadratic in serum FSH alone, and a logistic regression on age, FSH, LH, total testosterone and mean testis volume. Both estimate the probability that a man presenting for infertility evaluation has no sperm in the ejaculate, without a semen analysis.
+- **WHO 2021 semen reference distributions** from Campbell et al. (Andrology 2021), the fertile-man centiles adopted by the 6th edition of the WHO laboratory manual: where a semen parameter sits among fertile men, and whether it falls below the lower reference limit.
 
 > **Not affiliated with the original authors.** This is an independent implementation of published equations, intended for research use. It is not a medical device and should not be used to make clinical decisions.
 
@@ -59,6 +62,18 @@ scored[["azoo_fsh", "azoo_lr"]]
 
 Rows missing any logistic-model input get `NaN` in `azoo_lr`; `azoo_fsh` needs only FSH.
 
+### Semen parameters against the WHO reference distribution
+
+```python
+from seminal import semen_percentile, lower_reference_limit, below_reference
+
+semen_percentile("concentration", 36)      # 25.0  (25th centile of fertile men)
+lower_reference_limit("progressive_motility")   # 30  (WHO 2021; 32 under edition="who2010")
+below_reference("normal_forms", 3)         # True
+```
+
+`semen_reference()` returns the full published table (2.5th to 97.5th centiles, with the 95% CI of the 5th), and `add_semen_percentile_cols(df, {"concentration": "conc", ...})` adds a percentile and a below-limit flag per parameter for a cohort. Percentiles are interpolated between the nine published centiles and clipped to [2.5, 97.5].
+
 ## The equations
 
 **FSH-only quadratic** (Fig. 1): `p(%) = 0.133·FSH² − 0.965·FSH + 10.1`, fit to binned Miami probabilities, R² = 0.95.
@@ -75,6 +90,20 @@ Rows missing any logistic-model input get `NaN` in `azoo_lr`; `azoo_fsh` needs o
 | Mean testis volume | cm³ (Prader orchidometer) | −0.08 |
 
 The paper prints the model form as `1/exp[−(b₀ + bᵢXᵢ)]`, which is a typesetting error (it exceeds 1); the standard logistic form is used here.
+
+**WHO 2021 reference distribution** (Campbell et al. 2021, Table 3; 5th centile with 95% CI):
+
+| Parameter | n | 5th | 50th | 95th |
+|---|---|---|---|---|
+| Semen volume (mL) | 3,586 | 1.4 (1.3 to 1.5) | 3.0 | 6.2 |
+| Sperm concentration (10⁶/mL) | 3,587 | 16 (15 to 18) | 66 | 208 |
+| Total sperm number (10⁶) | 3,584 | 39 (35 to 40) | 210 | 701 |
+| Total motility (%) | 3,488 | 42 (40 to 43) | 64 | 90 |
+| Progressive motility (%) | 3,389 | 30 (29 to 31) | 55 | 77 |
+| Vitality (%) | 1,337 | 54 (50 to 56) | 78 | 97 |
+| Normal forms (%) | 3,335 | 4 (3.9 to 4.0) | 14 | 39 |
+
+All nine centiles for all nine parameters are in the package, as printed, for both the combined WHO 2020 table and the 2010 to 2020 studies alone.
 
 ## Validation against the authors' data
 
@@ -103,7 +132,7 @@ Both run against `data/processed/`, built by `make data_gen preprocess`. Noteboo
 
 ```
 seminal/
-├── src/seminal/      the package (equations only; no data)
+├── src/seminal/      the package (equations and reference tables; no data)
 ├── tests/              unit tests plus optional validation against data/
 ├── data_gen.py         download the Dataverse file into data/raw
 ├── preprocessing.py    harmonize sites into data/processed
@@ -122,7 +151,7 @@ If you use `seminal`, please cite the software and the original paper.
    month        = nov,
    year         = 2026,
    publisher    = {Zenodo},
-   version      = {0.0.0a4},
+   version      = {0.0.1a1},
    doi          = {10.5281/zenodo.24411154},
    url          = {https://doi.org/10.5281/zenodo.24411154}
 }
@@ -131,6 +160,8 @@ If you use `seminal`, please cite the software and the original paper.
 `CITATION.cff` carries the same metadata (GitHub shows it as "Cite this repository"). The original paper:
 
 Tradewell MB, Cazzaniga W, Pagani RL, et al. Algorithms for Predicting the Probability of Azoospermia from Follicle Stimulating Hormone: Design and Multi-Institutional External Validation. *World J Mens Health*. 2022;40(4):600-607. doi:10.5534/wjmh.210138
+
+Campbell MJ, Lotti F, Baldi E, et al. Distribution of semen examination results 2020 - A follow up of data collated for the WHO semen analysis manual 2010. *Andrology*. 2021;9(4):817-822. doi:10.1111/andr.12983
 
 ## License
 

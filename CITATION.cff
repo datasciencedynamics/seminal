@@ -6,7 +6,7 @@ authors:
   - family-names: Shpaner
     given-names: Leonid
     orcid: "https://orcid.org/0009-0007-5311-8095"
-version: 0.0.0a4
+version: 0.0.1a1
 date-released: 2026-11-20
 license: MIT
 repository-code: "https://github.com/datasciencedynamics/seminal"
@@ -51,6 +51,32 @@ references:
     start: 600
     end: 607
     doi: "10.5534/wjmh.210138"
+  - type: article
+    authors:
+      - family-names: Campbell
+        given-names: Martin J.
+      - family-names: Lotti
+        given-names: Francesco
+      - family-names: Baldi
+        given-names: Elisabetta
+      - family-names: Schlatt
+        given-names: Stefan
+      - family-names: Festin
+        given-names: Mario P. R.
+      - family-names: Björndahl
+        given-names: Lars
+      - family-names: Toskin
+        given-names: Igor
+      - family-names: Barratt
+        given-names: Christopher L. R.
+    title: "Distribution of semen examination results 2020 - A follow up of data collated for the WHO semen analysis manual 2010"
+    journal: "Andrology"
+    year: 2021
+    volume: 9
+    issue: 4
+    start: 817
+    end: 822
+    doi: "10.1111/andr.12983"
   - type: data
     authors:
       - family-names: Tradewell
