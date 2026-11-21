@@ -22,13 +22,13 @@ Not affiliated with the original authors. For research use only.
 PyPI: https://pypi.org/project/seminal/
 GitHub: https://github.com/lshpaner/seminal
 
-Version: 0.0.1a1
+Version: 0.0.0a1
 
 """
 
 __author__ = "Leonid Shpaner"
 __email__ = "lshpaner@ucla.edu"
-__version__ = "0.0.1a1"
+__version__ = "0.0.0a1"
 
 
 def custom_help(obj=None):
